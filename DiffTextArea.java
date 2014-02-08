@@ -36,15 +36,16 @@ public class DiffTextArea extends JTextPane{
 		add = doc.addStyle("Add",null);
 
 		StyleConstants.setForeground(nochange, Color.BLACK);
-		StyleConstants.setForeground(delete, Color.RED);
-		StyleConstants.setForeground(add, Color.GREEN);
+		StyleConstants.setForeground(delete, new Color(170,30,30));
+		StyleConstants.setForeground(add, new Color(35,150,25));
 	}
 
 	/**
 	 * overwritten function for disabling line wrap
 	 */
 	public boolean getScrollableTracksViewportWidth() {
-		return false;  
+		return getUI().getPreferredSize(this).width
+			<= getParent().getSize().width;  
 	}
 
 	/**
